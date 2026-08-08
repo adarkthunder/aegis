@@ -10,6 +10,10 @@ ShellRoot {
         id: notificationService
     }
 
+    AudioService {
+        id: audioService
+    }
+
     Variants {
         model: Quickshell.screens
 
@@ -35,6 +39,15 @@ ShellRoot {
             NotificationWindow {
                 screen: modelData
                 service: notificationService
+            }
+
+            AudioWindow {
+                screen: modelData
+                service: audioService
+            }
+
+            PowerWindow {
+                screen: modelData
             }
 
         }
