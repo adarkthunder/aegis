@@ -3,6 +3,11 @@ import qs.components
 import qs.theme
 
 PanelWindow {
+    id: root
+
+    required property var layout
+    readonly property real barWidth: implicitWidth
+
     anchors {
         top: true
         right: true
@@ -10,7 +15,7 @@ PanelWindow {
 
     margins {
         top: Theme.topMargin
-        right: Theme.screenMargin
+        right: root.layout.timeOffset
     }
 
     exclusiveZone: 0

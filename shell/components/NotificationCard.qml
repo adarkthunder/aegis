@@ -14,6 +14,7 @@ Rectangle {
     color: Theme.cardBackground
 
     Text {
+        id: content
         anchors.centerIn: parent
 
         text: root.service.notifications.length > 0

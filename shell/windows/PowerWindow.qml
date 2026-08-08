@@ -9,6 +9,9 @@ Scope {
     id: root
 
     required property var screen
+    required property var layout
+
+    readonly property real barWidth: content.implicitWidth
 
     property bool popupVisible: false
     
@@ -44,7 +47,7 @@ Scope {
 
         margins {
             top: Theme.topMargin
-            right: 0
+            right: root.layout.powerOffset
         }
 
         exclusiveZone: 0

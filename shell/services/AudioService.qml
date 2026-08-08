@@ -22,7 +22,10 @@ Scope {
     }
 
     function setVolume(value) {
+        console.log("AudioService setVolume:", value)
+
         if (!root.sink || !root.sink.audio)
+            console.log("No sink/audio available")
             return
 
         root.sink.audio.volume =

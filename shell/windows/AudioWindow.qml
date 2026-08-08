@@ -10,6 +10,8 @@ Scope {
 
     required property var screen
     required property var service
+    required property var layout
+    readonly property real barWidth: content.implicitWidth
 
     property bool popupVisible: false
 
@@ -25,7 +27,7 @@ Scope {
 
         margins {
             top: Theme.topMargin
-            right: 260   // temporary until we refactor right-side spacing
+            right: root.layout.audioOffset   // temporary until we refactor right-side spacing
         }
 
         exclusiveZone: 0
@@ -133,6 +135,7 @@ Scope {
                     value: root.service.volume
 
                     onMoved: {
+                        console.log("Audio slider moved:", value)
                         root.service.setVolume(value)
                     }
                 }

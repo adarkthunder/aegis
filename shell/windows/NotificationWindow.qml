@@ -8,6 +8,8 @@ Scope {
 
     required property var screen
     required property var service
+    required property var layout
+    readonly property real barWidth: content.implicitWidth
 
     property bool popupVisible: false
 
@@ -23,7 +25,7 @@ Scope {
 
         margins {
             top: Theme.topMargin
-            right: 185
+            right: root.layout.notificationOffset
         }
 
         exclusiveZone: 0

@@ -4,6 +4,9 @@ import qs.theme
 
 PanelWindow {
     id: root
+    
+    required property var layout
+    readonly property real barWidth: content.implicitWidth
 
     anchors {
         top: true
@@ -12,7 +15,7 @@ PanelWindow {
 
     margins {
         top: Theme.topMargin
-        right: 205
+        right: root.layout.trayOffset
     }
 
     exclusiveZone: 0
