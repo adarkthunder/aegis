@@ -1,7 +1,15 @@
+//@ pragma UseQApplication
+
+import QtQuick
 import Quickshell
 import qs.windows
+import qs.services
 
 ShellRoot {
+    NotificationService {
+        id: notificationService
+    }
+
     Variants {
         model: Quickshell.screens
 
@@ -19,6 +27,16 @@ ShellRoot {
             TimeWindow {
                 screen: modelData
             }
+
+            TrayWindow {
+                screen: modelData
+            }
+
+            NotificationWindow {
+                screen: modelData
+                service: notificationService
+            }
+
         }
     }
 }
