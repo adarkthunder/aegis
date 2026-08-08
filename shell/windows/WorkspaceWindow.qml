@@ -3,6 +3,8 @@ import qs.components
 import qs.theme
 
 PanelWindow {
+    id: root
+
     anchors {
         top: true
     }
@@ -20,5 +22,6 @@ PanelWindow {
 
     WorkspaceCard {
         id: content
+        screen: root.screen
     }
 }
