@@ -24,9 +24,11 @@ Scope {
     function setVolume(value) {
         console.log("AudioService setVolume:", value)
 
-        if (!root.sink || !root.sink.audio)
+        if (!root.sink || !root.sink.audio){
             console.log("No sink/audio available")
+        
             return
+        }
 
         root.sink.audio.volume =
             Math.max(0, Math.min(1, value / 100))
