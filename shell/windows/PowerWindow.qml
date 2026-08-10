@@ -21,6 +21,11 @@ Scope {
     }
 
     Process {
+        id: logoutProcess
+        command: ["hyprctl", "dispatch", "hl.dsp.exit()"]
+    }
+
+    Process {
         id: suspendProcess
         command: ["systemctl", "suspend"]
     }
@@ -102,6 +107,16 @@ Scope {
                 onClicked: {
                     root.popupVisible = false
                     lockProcess.running = true
+                }
+            }
+
+            PowerButton {
+                glyph: "󰍃"
+                text: "Logout"
+
+                onClicked: {
+                    root.popupVisible = false
+                    logoutProcess.running = true
                 }
             }
 
