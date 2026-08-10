@@ -1,8 +1,13 @@
 import QtQuick
 import Quickshell
+
 import qs.theme
 
 Rectangle {
+    id: root
+
+    signal clicked()
+
     implicitHeight: Theme.cardHeight
     implicitWidth: row.implicitWidth + 24
 
@@ -31,6 +36,14 @@ Rectangle {
             color: Theme.primaryText
             font.pixelSize: Theme.normalFontSize
         }
+    }
+
+    MouseArea {
+        anchors.fill: parent
+
+        cursorShape: Qt.PointingHandCursor
+
+        onClicked: root.clicked()
     }
 
     SystemClock {

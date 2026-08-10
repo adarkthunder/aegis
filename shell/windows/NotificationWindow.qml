@@ -64,32 +64,43 @@ Scope {
         exclusiveZone: 0
 
         implicitWidth: 320
-        implicitHeight: 200
+        implicitHeight: 360
 
         color: Theme.cardBackground
 
-        Column {
-            anchors.fill: parent
-            anchors.margins: 16
-            spacing: 12
+            Column {
+                anchors.fill: parent
+                anchors.margins: 16
+                spacing: 12
 
-            Text {
-                text: "Notifications"
-                color: Theme.primaryText
-                font.pixelSize: Theme.normalFontSize
-                font.bold: true
-            }
+                Text {
+                    id: notificationTitle
 
-            Repeater {
-                model: root.service.notifications
-    
-                delegate: NotificationItem {
-                    required property var modelData
+                    text: "Notifications"
+                    color: Theme.primaryText
+                    font.pixelSize: Theme.normalFontSize
+                    font.bold: true
+                }
 
+                ListView {
                     width: parent.width
-                    notification: modelData
+                    height: parent.height
+                            - notificationTitle.height
+                            - parent.spacing
+
+                    clip: true
+                    spacing: 8
+                    boundsBehavior: Flickable.StopAtBounds
+
+                    model: root.service.notifications
+
+                    delegate: NotificationItem {
+                        required property var modelData
+
+                        width: ListView.view.width
+                        notification: modelData
+                    }
                 }
             }
-        }
     }
 }
