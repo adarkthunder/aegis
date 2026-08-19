@@ -24,6 +24,7 @@ ShellRoot {
             RightBarLayout {
                 id: rightLayout
 
+                activeWindowWidth: activeWindowWindow.barWidth
                 trayWidth: trayWindow.barWidth
                 audioWidth: audioWindow.barWidth
                 notificationWidth: notificationWindow.barWidth
@@ -37,6 +38,12 @@ ShellRoot {
 
             WorkspaceWindow {
                 screen: modelData
+            }
+
+            ActiveWindowWindow {
+                id: activeWindowWindow
+                screen: modelData
+                layout: rightLayout
             }
 
             TrayWindow {

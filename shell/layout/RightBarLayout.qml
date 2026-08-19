@@ -4,6 +4,7 @@ QtObject {
     id: root
 
     // Width reported by each bar item
+    property real activeWindowWidth: 0
     property real trayWidth: 0
     property real audioWidth: 0
     property real notificationWidth: 0
@@ -15,7 +16,7 @@ QtObject {
 
     // Offsets measured from the right edge of the monitor.
     //
-    // [Tray] [Audio] [Notification] [Time] [Power]
+    //[Active Window] [Tray] [Audio] [Notification] [Time] [Power]
     //                                           ↑ right edge
 
     readonly property real powerOffset: 0
@@ -31,4 +32,8 @@ QtObject {
 
     readonly property real trayOffset:
         audioOffset + audioWidth + spacing
+
+    readonly property real activeWindowOffset:
+        trayOffset + trayWidth + spacing
+
 }
